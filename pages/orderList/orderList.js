@@ -5,15 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    item: {
-      detailSrc: '/assets/img/svg/detail.svg',
-      mainPart: '主要部位',
-      'package': '康复套餐',
-      completed: false,
-      timeStr: '预计所需时间',
-      timeNum: '6-12 min',
-      suggest: '已完成~ 我有话要说 >>>'
-    }
+
   },
 
   /**

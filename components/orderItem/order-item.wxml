@@ -1,4 +1,4 @@
-<template name="orderItem">
+<view name="orderItem">
   <view class="item-title"> {{orderTitle}} </view>
   <view class="item-block">
     <view class="item-head">
@@ -25,4 +25,4 @@
       <view wx:else>{{suggest}}</view>
     </view>
   </view>
-</template>
+</view>
