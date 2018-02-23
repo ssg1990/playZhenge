@@ -1,0 +1,27 @@
+<template name="orderItem">
+  <view class="item-block">
+    <view class="item-head">
+      <view class="item-event">
+        <image class="head-icon icon"/>
+        <view class="text">_____赛事</view>
+      </view>
+      <view class="item-date">
+        2008年4月15日
+      </view>
+    </view>
+
+    <view class="item-body">
+      <view class="content">
+        <view class="main-part">{{mainPart}}：膝关节</view>
+        <view calss="package">{{package}}：___模式</view>
+      </view>
+      <view class="detail-btn">
+        <image class="icon" src="{{detailSrc}}"/>
+      </view>
+    </view>
+    <view class="item-foot">
+      <view wx:if="{{!completed}}">{{timeStr}}: {{timeNum}}</view>
+      <view wx:else>{{suggest}}</view>
+    </view>
+  </view>
+</template>

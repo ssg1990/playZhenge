@@ -1,0 +1,3 @@
+<!--pages/orderList/orderList.wxml-->
+<import src="/template/temp.wxml"/>
+<template is="orderItem" data="{{...item}}"/>
