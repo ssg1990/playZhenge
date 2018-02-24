@@ -1,0 +1,11 @@
+<view class="picker-view" hidden="{{hidden}}">
+  <view class="control-btn">
+    <button bindtap="confirm">确认</button>
+    <button bindtap="cancel">取消</button> 
+  </view>
+  <picker-view class="picker" indicator-style="height: 50px;" value="{{value}}" bindchange="bindChange">
+    <picker-view-column>
+      <view class="picker-item" wx:for="{{events}}" wx:key="{{index}}">{{item}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>

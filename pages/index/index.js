@@ -29,6 +29,11 @@ Page({
     wx.navigateTo({
       url: '/pages/orderList/orderList',
     })
+  },
+  viewEventData() {
+    wx.navigateTo({
+      url: '/pages/eventData/eventData',
+    })
   }
 })
 

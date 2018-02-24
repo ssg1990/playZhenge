@@ -1,27 +1,28 @@
-<view name="orderItem">
-  <view class="item-title"> {{orderTitle}} </view>
+<view name="orderItem" class="{{mstyle}}">
+  <view class="item-title completed" wx:if="{{completed}}"> {{completedTitle}} </view>
+  <view class="item-title uncompleted" wx:else> {{uncompletedTitle}} </view>
   <view class="item-block">
     <view class="item-head">
       <view class="item-event">
-        <image class="head-icon icon"/>
-        <view class="text">_____赛事</view>
+        <image class="head-icon icon" src="{{sportIcon}}"/>
+        <view class="text">{{event}}赛事</view>
       </view>
       <view class="item-date">
-        2008年4月15日
+        {{date}}
       </view>
     </view>
 
     <view class="item-body">
       <view class="content">
-        <view class="main-part">{{mainPart}}：膝关节</view>
-        <view calss="package">{{package}}：___模式</view>
+        <view class="main-part">{{mainPart}}：{{part}}</view>
+        <view calss="package">{{package}}：{{suit}}模式</view>
       </view>
       <view class="detail-btn">
         <image class="icon" src="{{detailSrc}}"/>
       </view>
     </view>
     <view class="item-foot">
-      <view wx:if="{{!completed}}">{{timeStr}}: {{timeNum}}</view>
+      <view wx:if="{{!completed}}">{{timeStr}}: {{needTime}}</view>
       <view wx:else>{{suggest}}</view>
     </view>
   </view>

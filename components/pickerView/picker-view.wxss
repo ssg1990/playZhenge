@@ -1,0 +1,26 @@
+/* components/pickerView/picker-view.wxss */
+.picker-view{
+  position: absolute;
+  bottom: 0rpx;
+  width: 100%;
+}
+.picker-view .control-btn{
+  display:flex;
+  justify-content:space-between;
+  padding-top: 16rpx;
+  border-top: 2rpx solid #F8F8F8;
+}
+.picker-view .control-btn button{
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+  width: 200rpx;
+}
+.picker-view .picker{
+  padding-top: 40rpx;
+  width: 100%;
+  height: 200px
+}
+.picker-view .picker .picker-item{
+   line-height: 50px;
+   text-align: center;
+}

@@ -1,47 +1,18 @@
-// pages/orderList/orderList.js
+// pages/eventData/eventData.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list: [
-      {
-        event: '田径',
-        part: '膝关节',
-        suit: '针灸',
-        needTime: '6-12 min',
-        date: '2008年4月15日',
-        completed: false,
-      },
-      {
-        event: '田径',
-        part: '膝关节',
-        suit: '针灸',
-        needTime: '6-13 min',
-        date: '2008年4月16日',
-        completed: true,
-      },
-      {
-        event: '田径',
-        part: '踝关节',
-        suit: '针灸',
-        needTime: '6-12 min',
-        date: '2008年4月16日',
-        completed: false,
-      },
-    ],
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle(
-      {
-        title: '预约信息',
-      }
-    )
+  
   },
 
   /**

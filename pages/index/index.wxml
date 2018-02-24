@@ -17,7 +17,7 @@
       </swiper-item>
     </block>
   </swiper>
-  <button class="order">
+  <button class="order" bindtap="viewEventData">
     <view class="btn-img">
       <image class="btn-icon" src="{{btnSrc}}"/>
     </view>

@@ -1,4 +1,14 @@
 <!--pages/orderList/orderList.wxml-->
 <view>
-  <order-item/>
+  <block wx:for="{{list}}" wx:key="index">
+    <order-item 
+    mstyle="{{item.completed ? 'completed' : 'uncompleted'}}"
+    event="{{item.event}}"
+    date="{{item.date}}"
+    part="{{item.part}}"
+    suit="{{item.suit}}"
+    completed="{{item.completed}}"
+    need-time="{{item.needTime}}">
+    </order-item>
+  </block>
 </view>

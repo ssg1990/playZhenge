@@ -1,36 +1,32 @@
 // components/orderItem/order-item.js
 Component({
+  options: {
+    multipleSlots: true // 在组件定义时的选项中启用多slot支持
+  },                                                                                                                                                 
   /**
    * 组件的属性列表
    */
   properties: {
-    detailSrc:{
+    event: {
       type: String,
-      value: '/assets/img/svg/detail.svg',
     },
-    mainPart: {
+    date: {
       type: String,
-      value: '主要部位',
     },
-    'package': {
+    part: {
       type: String,
-      value: '康复套餐',
+    },
+    suit: {
+      type: String,
+    },
+    needTime: {
+      type:String,
+    },
+    mstyle: {
+      type: String,
     },
     completed: {
       type: Boolean,
-      value: false,
-    },
-    timeStr: {
-      type: String,
-      value: '预计所需时间',
-    },
-    timeNum: {
-      type: String,
-      value: '6-12 min',
-    },
-    suggest: {
-      type: String,
-      value: '已完成~ 我有话要说 >>>',
     }
   },
 
@@ -38,7 +34,15 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    detailSrc: '/assets/img/svg/detail.svg',
+    sportIcon: '/assets/img/svg/sport.svg',
+    mainPart: '主要部位',
+    'package': '康复套餐',
+    timeStr: '预计所需时间',
+    timeNum: '6-12 min',
+    suggest: '已完成~ 我有话要说 >>>',
+    uncompletedTitle: '-未完成订单-',
+    completedTitle: '-已完成订单-'
   },
 
   /**

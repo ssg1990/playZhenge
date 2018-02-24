@@ -1,13 +1,14 @@
 {
-  "pages":[
-    "pages/orderList/orderList",
+  "pages": [
+    "pages/eventData/eventData",
     "pages/index/index",
+    "pages/orderList/orderList",
     "pages/logs/logs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTitleText": "康复管家小程序",
+    "navigationBarTextStyle": "black"
   }
 }

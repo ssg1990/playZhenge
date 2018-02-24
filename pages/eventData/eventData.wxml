@@ -1,0 +1,11 @@
+<!--pages/eventData/eventData.wxml-->
+<text class="title">{{title}}</text>
+<text class="subTitle">{{subTitle}}</text>
+<form bindsubmit="formSubmit">
+  <view class="section">
+    <view class="eventName">赛事名称</view>
+  </view>
+
+
+</form>
+  <picker-view/>
