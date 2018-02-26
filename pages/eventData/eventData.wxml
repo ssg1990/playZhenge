@@ -3,7 +3,7 @@
 <text class="subTitle">{{subTitle}}</text>
 <form bindsubmit="formSubmit">
   <view class="section">
-    <view class="eventName">赛事名称</view>
+    <view class="eventName" bindtap='openPicker'>赛事名称</view>
   </view>
 
 

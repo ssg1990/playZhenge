@@ -38,6 +38,7 @@ Component({
     event: '4月15日爱江山越野跑',
     value: 0,
     hidden: false,
+    animate: '',
   },
   methods:{
     bindChange: function (e) {
@@ -47,17 +48,34 @@ Component({
       })
     },
     confirm: function() {
-      this.close();
+      this.open();
       console.log('confirm');
     },
-    cancle: function() {
+    cancel: function() {
       this.close();
       console.log('cancel');
     },
     close: function() {
       this.setData({
-        hidden: true
+        animate: 'pushdown',
       });
+    },
+    open: function() {
+      this.setData({
+        animate: 'popup',
+      });
+    },
+    animationEnd: function(e){
+      let animationName = e.detail.animationName;
+      if(animationName === 'pushdown') {
+        this.setData({
+          hidden: true
+        })
+      } else if (animationName === 'popup'){
+        this.setData({
+          hidden: false
+        })
+      }
     }
   }
 })
