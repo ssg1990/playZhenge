@@ -5,66 +5,67 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    openPicker: false,
+    title: 'Step1',
+    subTitle: '-填写个人参赛信息-',
+    chooseEvent: '请选择赛事',
+    eventName: '赛事名称',
+    eventNameValue: '',
+    eventNo:"赛事号码",
+    eventNoTip:"请输入赛事号码",
+    name: '您的名字',
+    nameTip: "请输入您的名字",
+    contactWay: '联系方式',
+    contactWayTip: "请输入联系方式",
+    returnVisit: "(便于后期回访)",
+    warningTips: "带 * 问题必须填写",
+    hideTips: true,
   },
 
-  openPicker() {
-    console.log(this);
+  doOpenPicker() {
+    this.setData({
+      openPicker: true,
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
+  chooseEvent(e) {
+    this.console.log(e)
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  chooseEventListener: function (e) {
+    this.setData({
+      eventNameValue: e.detail.eventName,
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
+  formSubmit(e) {
+    const detail = e.detail.value;
+    const completed = detail.eventName && detail.eventNo && detail.name;
+    if(!completed) {
+      this.showTips();
+      return;
+    } else {
+      this.hideTips();
+      this.goToQuestionaire();
+      console.log('jump');
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
+  showTips() {
+    this.setData({
+      hideTips: false,
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
+  hideTips() {
+    this.setData({
+      hideTips: true,
+    })
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  goToQuestionaire() {
+    wx.navigateTo({
+      url: '/pages/diagnoseQuestionaire/diagnoseQuestionaire',
+    })
   }
 })

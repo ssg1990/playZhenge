@@ -1,11 +1,48 @@
 <!--pages/eventData/eventData.wxml-->
-<text class="title">{{title}}</text>
-<text class="subTitle">{{subTitle}}</text>
-<form bindsubmit="formSubmit">
+<view class="eventData">
+<view class="title">{{title}}</view>
+<view class="sub-title">{{subTitle}}</view>
+<form bindsubmit="formSubmit" bind:chooseevent="chooseEventListener">
   <view class="section">
-    <view class="eventName" bindtap='openPicker'>赛事名称</view>
+    <view class="section-name"><span class="necessary">*</span>{{eventName}}:</view>
+    <input placeholder="{{chooseEvent}}"
+    bindtap="doOpenPicker"
+    disabled='disabled'    
+    class="section-text"
+    value="{{eventNameValue}}"
+    name="eventName">
+    </input>
   </view>
-
-
+  <view class="section">
+    <view class="section-name"><span class="necessary">*</span>{{eventNo}}:</view>
+    <input placeholder="{{eventNoTip}}"
+           class="section-text"
+           name="eventNo">
+    </input>
+  </view>
+  <view class="section">
+    <view class="section-name"><span class="necessary">*</span>{{name}}:</view>
+    <input placeholder="{{nameTip}}"
+           class="section-text"
+           name="name">
+    </input>
+  </view>
+  <view class="section last-section">
+    <view class="section-name">{{contactWay}}:</view>
+    <input placeholder="{{contactWayTip}}"
+           class="section-text"
+           name="contactWay">
+    </input>
+  </view>
+  <view class="tips">
+    <view class="explain-tips">{{returnVisit}}</view>
+    <view class="uncompleted-tips" hidden="{{hideTips}}">
+      {{warningTips}}
+    </view>
+  </view>
+  <button class="next-btn" form-type='submit'>
+    Next>>>
+  </button>
+  <picker-view openPicker="{{openPicker}}"/>
 </form>
-  <picker-view/>
+</view>

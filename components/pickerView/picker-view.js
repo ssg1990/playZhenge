@@ -1,27 +1,3 @@
-// // components/pickerView/picker-view.js
-// Component({
-//   /**
-//    * 组件的属性列表
-//    */
-//   properties: {
-
-//   },
-
-//   /**
-//    * 组件的初始数据
-//    */
-//   data: {
-
-//   },
-
-//   /**
-//    * 组件的方法列表
-//    */
-//   methods: {
-
-//   }
-// })
-
 const date = new Date()
 const events = [
   '4月15日爱江山越野跑',
@@ -30,9 +6,17 @@ const events = [
   '4月18日篮球争霸赛',
 ]
 
-
-
 Component({
+  properties: {
+    openPicker:{
+      type: Boolean,
+      observer: function(newVal, oldVal){
+        if(newVal === true && oldVal !== newVal) {
+          this.open();
+        }
+      }
+    }
+  },
   data: {
     events: events,
     event: '4月15日爱江山越野跑',
@@ -48,14 +32,14 @@ Component({
       })
     },
     confirm: function() {
-      this.open();
-      console.log('confirm');
+      this.triggerEvent('chooseevent', { eventName: this.data.event }, { bubbles: true });
+      this.close();
     },
     cancel: function() {
       this.close();
-      console.log('cancel');
     },
     close: function() {
+      this.properties.openPicker = false;
       this.setData({
         animate: 'pushdown',
       });
@@ -65,17 +49,5 @@ Component({
         animate: 'popup',
       });
     },
-    animationEnd: function(e){
-      let animationName = e.detail.animationName;
-      if(animationName === 'pushdown') {
-        this.setData({
-          hidden: true
-        })
-      } else if (animationName === 'popup'){
-        this.setData({
-          hidden: false
-        })
-      }
-    }
   }
 })

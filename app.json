@@ -3,7 +3,8 @@
     "pages/eventData/eventData",
     "pages/index/index",
     "pages/orderList/orderList",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/diagnoseQuestionaire/diagnoseQuestionaire"
   ],
   "window": {
     "backgroundTextStyle": "light",

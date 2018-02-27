@@ -1,1 +1,68 @@
 /* pages/eventData/eventData.wxss */
+.title{
+  font-size: 108rpx;
+  text-align: center;
+   margin-top: 105rpx; 
+}
+.sub-title{
+  font-size: 32rpx;
+  text-align: center;
+  margin-top: 26rpx;
+  margin-bottom: 126rpx;
+}
+.section{
+  display: flex;
+  margin-left: 70rpx;
+  margin-right: 70rpx;
+  height: 60rpx;
+  margin-bottom: 40rpx;
+}
+.last-section{
+  margin-bottom: 0;
+}
+.section-name{
+  font-size: 28rpx;
+  line-height: 60rpx;
+  width: 142rpx;
+  text-align: center;
+  margin-right: 20rpx;
+}
+.section-text{
+  width: 400rpx;
+  border: 1rpx solid black;
+  border-radius: 10rpx;
+  font-size: 28rpx;
+  padding-left: 20rpx;
+}
+.necessary{
+  color: red;
+  position: relative;
+  font-size: 20rpx;
+  top: -10rpx;
+  left: -10rpx;
+}
+.tips{
+  font-size: 24rpx;
+  /* margin-left: 468rpx; */
+  text-align: center;
+  height: 150rpx; 
+
+}
+.tips .uncompleted-tips{
+  color: red;
+  margin-top: 15rpx;
+  text-align: center;
+}
+.tips .explain-tips{
+  color: #2B555E;
+  position: relative;
+  left: 180rpx;
+}
+.next-btn{
+  width: 236rpx;
+  height: 72rpx;
+  line-height: 72rpx;
+  font-size: 32rpx;
+  background: #5B96A8;
+  color: #fff;
+}
