@@ -5,7 +5,7 @@
   </view>
   <picker-view class="picker" indicator-style="height: 50px;" value="{{value}}" bindchange="bindChange">
     <picker-view-column>
-      <view class="picker-item" wx:for="{{events}}" wx:key="{{index}}">{{item}}</view>
+      <view class="picker-item" wx:for="{{choices}}" wx:key="{{index}}">{{item}}</view>
     </picker-view-column>
   </picker-view>
 </view>

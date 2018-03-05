@@ -36,15 +36,15 @@
   </view>
   <view class="tips">
     <view class="explain-tips">{{returnVisit}}</view>
-    <view class="uncompleted-tips" hidden="{{hideTips}}">
+    <view class="uncompleted-tips" hidden="{{hideTipsFlag}}">
       {{warningTips}}
     </view>
   </view>
   <button class="next-btn" form-type='submit'>
     Next>>>
   </button>
-   <picker-view openPicker="{{openPicker}}"/>
+   <picker-view openPicker="{{openPicker}}" choices="{{choices}}"/>
 </form>
 </view>
- <view class="modal" hidden="{{modalHidden}}">
- </view>
+<view class="modal" hidden="{{modalHidden}}">
+</view>

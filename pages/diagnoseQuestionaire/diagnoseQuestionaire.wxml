@@ -1,0 +1,52 @@
+<view class="diagnose-questionaire" bind:chooseevent="chooseEventListener" bind:closemodal="closeModalListener">
+  <view class="questionaire">
+    <view class="title">
+      <view class="main-title">{{title}}</view>
+      <view class="sub-title">{{subTitle}}</view>
+    </view>
+    <form bindsubmit="formSubmit">
+      <view class="section padding-horizontal">
+        <view class="section-item">
+          <view class="item-name">{{sexLabel}}</view>
+          <view class="btn-group">
+            <button class="tab-btn first-btn {{maleSelect}}" data-value="0" bindtap="setSex"><image  src="{{maleSrc}}"></image></button>
+            <button class="tab-btn {{femaleSelect}}" data-value="1" bindtap="setSex"><image  src="{{femaleSrc}}"></image></button> 
+          </view>
+        </view>
+        <view class="section-item age-sectioin">
+          <view class="item-name">{{ageLabel}}</view>
+          <input placeholder="{{chooseAge}}"
+          bindtap="doOpenPicker"
+          disabled='disabled'    
+          class="section-text"
+          value="{{age}}"
+          name="age">
+          </input>
+        </view>
+        <view class="section-item"></view>
+      </view>
+      <view class="sports-selection padding-horizontal">
+        <view class="sports-title">{{sportsTitle}}</view>
+        <view class="tri-tab">
+          <view class="tab-1 per-share {{tabSelect1}}"
+          data-index="1"
+          data-value="跑步"
+          bindtap="tapTab">{{running}}</view>
+          <view class="tab-2 per-share {{tabSelect2}}" 
+          data-index="2"
+          data-value="游泳"
+          bindtap="tapTab">{{swimming}}</view>
+          <view class="tab-3 per-share {{tabSelect3}}" 
+          data-index="3"
+          data-value="自行车" 
+          bindtap="tapTab">{{bycycle}}</view>
+        </view>
+      </view>
+      <view class="pain-selection padding-horizontal"></view>
+      <button class="order-submit" form-type='submit'>{{submitBtn}}</button>
+    </form>
+  </view>
+  <picker-view openPicker="{{openPicker}}" choices="{{choices}}"/>
+</view>
+<view class="modal" hidden="{{modalHidden}}">
+</view>

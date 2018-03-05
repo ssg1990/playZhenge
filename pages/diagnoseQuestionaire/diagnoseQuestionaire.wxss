@@ -1,1 +1,134 @@
 /* pages/diagnoseQuestionaire/diagnoseQuestionaire.wxss */
+.questionaire{
+  margin-top: 126rpx;
+  width: 674rpx;
+  height: 2282rpx;
+  margin-left: 38rpx;
+  margin-right: 38rpx;
+  border: 2rpx solid rgba(173,173,173,0.7);
+  box-shadow: 0 0 8rpx 0 rgba(173,173,173,1);
+  border-radius: 10rpx;
+}
+.title{
+  text-align: center;
+  margin-top: 84rpx;
+  margin-bottom: 76rpx;
+}
+.main-title{
+  font-size: 108rpx;
+}
+.sub-title{
+  margin-top: 26rpx;
+  font-size: 32rpx;
+}
+
+/* public style */
+.padding-horizontal{
+  padding-left: 42rpx;
+  padding-right: 42rpx;
+}
+
+/* section style */
+.section{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 36rpx;
+}
+.section-item{
+  display: flex;
+  font-size: 28rpx;
+}
+.item-name{
+  width: 104rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.btn-group{
+  display: flex;
+}
+.tab-btn{
+  width: 76rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 10rpx;
+}
+.tab-btn image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: -9rpx;
+  margin-top: 10rpx;
+}
+.first-btn{
+  margin-right: 1rpx;
+}
+.section-text{
+  width: 190rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border: 2rpx solid #BBBBBB;
+  border-radius: 10rpx;
+  text-align: center;
+}
+.select{
+  background-color: #5B96A8;
+}
+.order-submit{
+  margin-top: 60rpx;
+  width: 236rpx;
+  height: 72rpx;
+  border-radius: 12rpx;
+  background-color: #259B24;
+  border: none;
+  color: #fff;
+  line-height: 72rpx;
+  font-size: 32rpx;
+}
+
+/* sports pannle */
+.sports-panel{
+  margin-bottom: 36rpx;
+}
+.sports-title{
+  font-size: 28rpx;
+  margin-bottom: 30rpx;
+}
+.tri-tab{
+  width: 590rpx;
+  border: solid 2rpx #BBBBBB;
+  border-radius: 10rpx;
+  height:68rpx;
+  display: flex;
+}
+.per-share{
+  flex: 1 0 0;
+  text-align: center;
+  line-height: 68rpx;
+  font-size: 28rpx;
+  color: #4A8294;
+}
+.tab-1{
+  border-top-left-radius: 10rpx;
+  border-bottom-left-radius: 10rpx;
+  border-right: solid 2rpx #BBBBBB;
+}
+.tab-2{
+  border-right: solid 2rpx #BBBBBB;
+}
+.tab-3{
+  border-top-right-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+}
+
+.tab-selected{
+  background: #5B96A8;
+  color: #fff;
+}
+
+.modal{
+  position: fixed;
+  width: 100%;
+  color: transparent;
+  bottom: 0;
+  top: 0;
+  z-index: 100;
+}

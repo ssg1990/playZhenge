@@ -1,11 +1,3 @@
-const date = new Date()
-const events = [
-  '4月15日爱江山越野跑',
-  '4月16日爱美人越野跑',
-  '4月17日乒乓球',
-  '4月18日篮球争霸赛',
-]
-
 Component({
   properties: {
     openPicker:{
@@ -15,11 +7,13 @@ Component({
           this.open();
         }
       }
+    },
+    choices: {
+      type: Array
     }
   },
   data: {
-    events: events,
-    event: '4月15日爱江山越野跑',
+    choice: '',
     value: 0,
     hidden: false,
     animate: '',
@@ -28,11 +22,11 @@ Component({
     bindChange: function (e) {
       const val = e.detail.value
       this.setData({
-        event: this.data.events[val],
+        choice: this.properties.choices[val],
       })
     },
     confirm: function() {
-      this.triggerEvent('chooseevent', { eventName: this.data.event }, { bubbles: true });
+      this.triggerEvent('chooseevent', { choice: this.data.choice }, { bubbles: true });
       this.close();
     },
     cancel: function() {

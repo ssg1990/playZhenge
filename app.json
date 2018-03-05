@@ -1,10 +1,10 @@
 {
   "pages": [
-    "pages/eventData/eventData",
+    "pages/diagnoseQuestionaire/diagnoseQuestionaire",
+    "pages/eventData/eventData",    
     "pages/index/index",
     "pages/orderList/orderList",
-    "pages/logs/logs",
-    "pages/diagnoseQuestionaire/diagnoseQuestionaire"
+    "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",

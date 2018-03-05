@@ -19,8 +19,14 @@ Page({
     contactWayTip: "请输入联系方式",
     returnVisit: "(便于后期回访)",
     warningTips: "带 * 问题必须填写",
-    hideTips: true,
+    hideTipsFlag: true,
     modalHidden: true,
+    choices: [
+      '4月15日爱江山越野跑',
+      '4月16日爱美人越野跑',
+      '4月17日乒乓球',
+      '4月18日篮球争霸赛',
+    ]
   },
 
   doOpenPicker() {
@@ -32,7 +38,7 @@ Page({
 
   chooseEventListener: function (e) {
     this.setData({
-      eventNameValue: e.detail.eventName,
+      eventNameValue: e.detail.choice,
       modalHidden: true,
     })
   },
@@ -59,13 +65,13 @@ Page({
 
   showTips() {
     this.setData({
-      hideTips: false,
+      hideTipsFlag: false,
     })
   },
 
   hideTips() {
     this.setData({
-      hideTips: true,
+      hideTipsFlag: true,
     })
   },
 
