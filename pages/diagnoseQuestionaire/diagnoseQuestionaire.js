@@ -8,16 +8,17 @@ Page({
     // logical flags
     modalHidden: true,
     // static labels
-    sexLabel: '·性别:',
-    ageLabel: '·年龄:',
+    sexLabel: '·性别：',
+    ageLabel: '·年龄：',
     title: 'Step2',
     subTitle: '-自我诊断-',
     chooseAge: '选择年龄',
     submitBtn: '确认预约',
-    sportsTitle: '·请选择您最长进行的运动:',
+    sportsTitle: '·请选择您最长进行的运动：',
     running: '跑步',
     swimming: '游泳',
     bycycle: '自行车',
+    painTitle: '·请在下图中点击您运动后最易产生不适的部位:',
     // src
     maleSrc: '/assets/img/svg/male-selected.svg',
     femaleSrc: '/assets/img/svg/female-unselect.svg',

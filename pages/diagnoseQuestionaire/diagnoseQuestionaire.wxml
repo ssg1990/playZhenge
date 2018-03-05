@@ -25,7 +25,7 @@
         </view>
         <view class="section-item"></view>
       </view>
-      <view class="sports-selection padding-horizontal">
+      <view class="sports-panel padding-horizontal">
         <view class="sports-title">{{sportsTitle}}</view>
         <view class="tri-tab">
           <view class="tab-1 per-share {{tabSelect1}}"
@@ -42,7 +42,10 @@
           bindtap="tapTab">{{bycycle}}</view>
         </view>
       </view>
-      <view class="pain-selection padding-horizontal"></view>
+      <view class="pain-panel padding-horizontal">
+        <view class="pain-title">{{painTitle}}</view>
+        <view class="pain-graph"></view>
+      </view>
       <button class="order-submit" form-type='submit'>{{submitBtn}}</button>
     </form>
   </view>

@@ -84,7 +84,7 @@
   font-size: 32rpx;
 }
 
-/* sports pannle */
+/* sports panel */
 .sports-panel{
   margin-bottom: 36rpx;
 }
@@ -122,6 +122,20 @@
 .tab-selected{
   background: #5B96A8;
   color: #fff;
+}
+
+/* pain-panel */
+.pain-panel{
+  margin-bottom: 42rpx;
+}
+.pain-title{
+  margin-bottom: 32rpx;
+  font-size: 28rpx;
+}
+.pain-graph{
+  width: 590rpx;
+  height: 752rpx;
+  background-color: red;
 }
 
 .modal{
