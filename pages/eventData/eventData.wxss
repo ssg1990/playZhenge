@@ -66,3 +66,11 @@
   background: #5B96A8;
   color: #fff;
 }
+.modal{
+  position: fixed;
+  width: 100%;
+  color: transparent;
+  bottom: 0;
+  top: 0;
+  z-index: 100;
+}

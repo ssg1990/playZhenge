@@ -36,6 +36,7 @@ Component({
       this.close();
     },
     cancel: function() {
+      this.triggerEvent('closemodal', {}, {bubbles: true});
       this.close();
     },
     close: function() {

@@ -20,23 +20,29 @@ Page({
     returnVisit: "(便于后期回访)",
     warningTips: "带 * 问题必须填写",
     hideTips: true,
+    modalHidden: true,
   },
 
   doOpenPicker() {
     this.setData({
       openPicker: true,
+      modalHidden: false,
     });
-  },
-
-  chooseEvent(e) {
-    this.console.log(e)
   },
 
   chooseEventListener: function (e) {
     this.setData({
       eventNameValue: e.detail.eventName,
+      modalHidden: true,
     })
   },
+
+  closeModalListener: function(e) {
+    this.setData({
+      modalHidden: true,
+    })
+  },
+
 
   formSubmit(e) {
     const detail = e.detail.value;
@@ -67,5 +73,13 @@ Page({
     wx.navigateTo({
       url: '/pages/diagnoseQuestionaire/diagnoseQuestionaire',
     })
+  },
+
+  onLoad(options) {
+    wx.setNavigationBarTitle(
+      {
+        title: '赛事信息',
+      }
+    )
   }
 })

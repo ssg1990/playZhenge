@@ -2,7 +2,7 @@
 <view class="eventData">
 <view class="title">{{title}}</view>
 <view class="sub-title">{{subTitle}}</view>
-<form bindsubmit="formSubmit" bind:chooseevent="chooseEventListener">
+<form bindsubmit="formSubmit" bind:chooseevent="chooseEventListener" bind:closemodal="closeModalListener">
   <view class="section">
     <view class="section-name"><span class="necessary">*</span>{{eventName}}:</view>
     <input placeholder="{{chooseEvent}}"
@@ -43,6 +43,8 @@
   <button class="next-btn" form-type='submit'>
     Next>>>
   </button>
-  <picker-view openPicker="{{openPicker}}"/>
+   <picker-view openPicker="{{openPicker}}"/>
 </form>
 </view>
+ <view class="modal" hidden="{{modalHidden}}">
+ </view>
