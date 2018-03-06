@@ -49,14 +49,15 @@
 .tab-btn{
   width: 76rpx;
   height: 60rpx;
-  line-height: 60rpx;
   border-radius: 10rpx;
+  display: flex;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
 }
 .tab-btn image{
-  width: 40rpx;
-  height: 40rpx;
-  margin-left: -9rpx;
-  margin-top: 10rpx;
+  width: 60rpx;
+  height: 60rpx;
+  flex: 1 0 0;
 }
 .first-btn{
   margin-right: 1rpx;

@@ -37,12 +37,23 @@ Page({
     /* data package */
     sex: '男性',
     goodSports: '跑步',
+    /* modal */
+    clientHeight: 'auto',
+    overflow: 'auto'
   },
 
   doOpenPicker() {
+    let cHeight = 0;
+    wx.getSystemInfo({
+      success: function (res) {
+        cHeight = res.windowHeight + 'px';
+      },
+    })
     this.setData({
       openPicker: true,
       modalHidden: false,
+      clientHeight: cHeight,
+      overflow: 'hidden',
     });
   },
 
@@ -81,12 +92,16 @@ Page({
     this.setData({
       age: e.detail.choice,
       modalHidden: true,
+      clientHeight: 'auto',
+      scroll: 'auto',
     })
   },
 
   closeModalListener: function (e) {
     this.setData({
       modalHidden: true,
+      clientHeight: 'auto',
+      scroll: 'auto',
     })
   },
 

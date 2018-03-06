@@ -1,4 +1,5 @@
-<view class="diagnose-questionaire" bind:chooseevent="chooseEventListener" bind:closemodal="closeModalListener">
+<view class="diagnose-questionaire" bind:chooseevent="chooseEventListener" bind:closemodal="closeModalListener"
+style="height:{{clientHeight}};overflow:{{overflow}}">
   <view class="questionaire">
     <view class="title">
       <view class="main-title">{{title}}</view>
@@ -50,6 +51,6 @@
     </form>
   </view>
   <picker-view openPicker="{{openPicker}}" choices="{{choices}}"/>
-</view>
-<view class="modal" hidden="{{modalHidden}}">
+  <view class="modal" hidden="{{modalHidden}}">
+  </view>
 </view>
