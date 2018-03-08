@@ -22,6 +22,7 @@ Page({
     // src
     maleSrc: '/assets/img/svg/male-selected.svg',
     femaleSrc: '/assets/img/svg/female-unselect.svg',
+    avatarImg: '/assets/img/avatar.jpeg',
     // data
     maleSelect: 'select',
     femaleSelect: '',    
@@ -39,7 +40,17 @@ Page({
     goodSports: '跑步',
     /* modal */
     clientHeight: 'auto',
-    overflow: 'auto'
+    overflow: 'auto',
+    /* part color List */
+    select1: false,
+    select2: false,
+    select3: false,
+    select4: false,
+    select5: false,
+    select6: false,
+    select7: false,
+    /* pain array */
+    painList: []
   },
 
   doOpenPicker() {
@@ -105,10 +116,82 @@ Page({
     })
   },
 
+  painPoint: function(e) {
+    const value = e.target.dataset.value;
+    let painList = this.data.painList;
+    const select = e.target.dataset.select;
+    const selectValue = !this.data[select];
+    const dataObj = {}
+    selectValue ? painList.push(value) : painList = painList.filter((i) => i !== value);
+    dataObj[select] = selectValue;
+    dataObj.painList = painList;
+    this.setData(dataObj);
+    console.log(painList);
+  },
+
   formSubmit(e) {
     console.log(e.detail.value);
   },
 
+  canvasDraw() {{
+    var context = wx.createCanvasContext('avatarCanvas');
+    context.setStrokeStyle('#888888');
+    context.setFontSize(14)
+    context.setTextBaseline('middle');
+    // 肩颈
+    context.setLineWidth(1);
+    context.moveTo(105, 70);
+    context.lineTo(153, 25);
+    context.lineTo(230, 25);
+    context.stroke();
+    context.fillText("肩颈", 233, 25);
+
+    // 肘部
+    context.beginPath();
+    context.moveTo(155, 95);
+    context.lineTo(183, 65);
+    context.lineTo(230, 65);
+    context.stroke();
+    context.fillText("肘部", 233, 65);
+
+    //腰臀
+    context.beginPath();
+    context.moveTo(145, 130);
+    context.lineTo(235, 130);
+    context.stroke();
+    context.fillText("腰臀", 238, 130);
+
+    //大腿
+    context.beginPath();
+    context.moveTo(170, 190);
+    context.lineTo(205, 165);
+    context.lineTo(240, 165);
+    context.stroke();
+    context.fillText("大腿", 243, 165);
+
+    //腕部
+    context.beginPath();
+    context.moveTo(50, 146);
+    context.lineTo(35, 100);
+    context.stroke();
+    context.fillText("腕部", 25, 100);
+
+    //膝部
+    context.beginPath();
+    context.moveTo(73, 220);
+    context.lineTo(93, 250);
+    context.stroke();
+    context.fillText("膝部", 96, 250);
+
+    //踝及足底
+    context.beginPath();
+    context.moveTo(73, 300);
+    context.lineTo(123, 300);
+    context.stroke();
+    context.fillText("踝及足底", 126, 300);
+
+    context.draw();
+  }},
   /**
    * 生命周期函数--监听页面加载
    */
@@ -120,7 +203,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    this.canvasDraw();
   },
 
   /**

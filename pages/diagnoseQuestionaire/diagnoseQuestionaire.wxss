@@ -136,9 +136,87 @@
 .pain-graph{
   width: 590rpx;
   height: 752rpx;
-  background-color: red;
 }
-
+.pain-graph .slopingside{  
+  height:0px;  
+  border: 1px solid red;  
+  width: 45px;  
+  transform:rotate(125deg);
+  -o-transform:rotate(125deg);  
+  -moz-transform:rotate(125deg);  
+  -webkit-transform:rotate(125deg);  
+}  
+.pain-graph .linear {  
+  height:0px;   
+  border: 1px solid red;  
+  margin-left: 30px;  
+  margin-top: -10px;  
+}  
+.pain-graph .background-graph{
+  position: absolute;
+  width: 590rpx;
+  height: 752rpx;
+  z-index: -1;
+}
+.pain-graph .avatar-canvas{
+  position: absolute;
+  width: 590rpx;
+  height: 752rpx;
+}
+.body-part-1 {
+  left: 236rpx;
+  top: 980rpx;
+  width: 94rpx;
+  height: 94rpx;
+}
+.body-part-2{
+  left: 354rpx;
+  top: 1034rpx;
+  width: 56rpx;
+  height: 56rpx;
+}
+.body-part-3{
+  left: 296rpx;
+  top: 1100rpx;
+  width: 100rpx;
+  height: 100rpx;
+}
+.body-part-4{
+  left: 370rpx;
+  top: 1226rpx;
+  width: 80rpx;
+  height: 80rpx;
+}
+.body-part-5{
+  left: 146rpx;
+  top: 1142rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+.body-part-6{
+  left: 166rpx;
+  top: 1264rpx;
+  width: 80rpx;
+  height: 80rpx;
+}
+.body-part-7{
+  left: 176rpx;
+  top: 1420rpx;
+  width: 70rpx;
+  height: 70rpx;
+}
+.body-part-selected{
+  background-color: rgba(76, 158, 217, 1);
+  opacity: 0.74;
+}
+.body-part-unselect{
+  opacity: 0.34;
+  background-color: rgba(229, 28, 35, 1);
+}
+.circle{
+  position:absolute;
+  border-radius: 200rpx;
+}
 .modal{
   position: fixed;
   width: 100%;
