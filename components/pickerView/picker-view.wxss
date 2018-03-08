@@ -55,3 +55,7 @@
     height: 0rpx;
   }
 }
+.bg{
+  width:100%;
+  position: fixed;
+}

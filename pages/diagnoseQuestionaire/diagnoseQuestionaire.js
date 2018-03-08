@@ -1,6 +1,5 @@
 // pages/diagnoseQuestionaire/diagnoseQuestionaire.js
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -19,6 +18,7 @@ Page({
     swimming: '游泳',
     bycycle: '自行车',
     painTitle: '·请在下图中点击您运动后最易产生不适的部位:',
+    other1: '其他：',
     // src
     maleSrc: '/assets/img/svg/male-selected.svg',
     femaleSrc: '/assets/img/svg/female-unselect.svg',
@@ -38,19 +38,22 @@ Page({
     /* data package */
     sex: '男性',
     goodSports: '跑步',
-    /* modal */
-    clientHeight: 'auto',
-    overflow: 'auto',
     /* part color List */
-    select1: false,
-    select2: false,
-    select3: false,
-    select4: false,
-    select5: false,
-    select6: false,
-    select7: false,
+    selectDict: {
+      select1: false,
+      select2: false,
+      select3: false,
+      select4: false,
+      select5: false,
+      select6: false,
+      select7: false,
+    },
     /* pain array */
-    painList: []
+    pain: '',
+    /* canvas attribute */
+    canvasWidth:  '0px',
+    canvasHeight: '0px',
+    isScroll: true
   },
 
   doOpenPicker() {
@@ -63,8 +66,7 @@ Page({
     this.setData({
       openPicker: true,
       modalHidden: false,
-      clientHeight: cHeight,
-      overflow: 'hidden',
+      isScroll: false,
     });
   },
 
@@ -89,7 +91,7 @@ Page({
 
   tapTab(e) {
     const index = e.target.dataset.index;
-    const sportsList = ['跑步', '有用', '自行车'];
+    const sportsList = ['跑步', '游泳', '自行车'];
     let tabSelectObj = {
       tabSelect1: '',
       tabSelect2: '',
@@ -103,8 +105,7 @@ Page({
     this.setData({
       age: e.detail.choice,
       modalHidden: true,
-      clientHeight: 'auto',
-      scroll: 'auto',
+      isScroll: true,
     })
   },
 
@@ -113,85 +114,111 @@ Page({
       modalHidden: true,
       clientHeight: 'auto',
       scroll: 'auto',
+      isScroll: true,
     })
   },
 
+  resetSelectDict() {
+    let initSelectDict = {
+      select1: false,
+      select2: false,
+      select3: false,
+      select4: false,
+      select5: false,
+      select6: false,
+      select7: false,
+    }
+    this.setData({
+      selectDict: initSelectDict,
+    })
+  },
+  
   painPoint: function(e) {
     const value = e.target.dataset.value;
-    let painList = this.data.painList;
     const select = e.target.dataset.select;
-    const selectValue = !this.data[select];
-    const dataObj = {}
-    selectValue ? painList.push(value) : painList = painList.filter((i) => i !== value);
-    dataObj[select] = selectValue;
-    dataObj.painList = painList;
-    this.setData(dataObj);
-    console.log(painList);
+    let str = "selectDict." + select;
+    this.resetSelectDict();
+    this.setData({
+      [str]: true,
+      pain: value,
+    });
+    console.log(this.data.pain);
   },
 
   formSubmit(e) {
     console.log(e.detail.value);
   },
-
+  rem(src) {
+    const commonWidth = 375;
+    const ratio = wx.getSystemInfoSync().windowWidth / 375;
+    return src*ratio|0;
+  },
   canvasDraw() {{
     var context = wx.createCanvasContext('avatarCanvas');
     context.setStrokeStyle('#888888');
     context.setFontSize(14)
     context.setTextBaseline('middle');
+    const rem = this.rem;
     // 肩颈
-    context.setLineWidth(1);
-    context.moveTo(105, 70);
-    context.lineTo(153, 25);
-    context.lineTo(230, 25);
+    context.setLineWidth(rem(1));
+    context.moveTo(rem(105), rem(70));
+    context.lineTo(rem(153), rem(25));
+    context.lineTo(rem(230), rem(25));
     context.stroke();
-    context.fillText("肩颈", 233, 25);
+    context.fillText("肩颈", rem(233), rem(25));
 
     // 肘部
     context.beginPath();
-    context.moveTo(155, 95);
-    context.lineTo(183, 65);
-    context.lineTo(230, 65);
+    context.moveTo(rem(155), (95));
+    context.lineTo(rem(183), rem(65));
+    context.lineTo(rem(230), rem(65));
     context.stroke();
-    context.fillText("肘部", 233, 65);
+    context.fillText("肘部", rem(233), rem(65));
 
     //腰臀
     context.beginPath();
-    context.moveTo(145, 130);
-    context.lineTo(235, 130);
+    context.moveTo(rem(145), rem(130));
+    context.lineTo(rem(235), rem(130));
     context.stroke();
-    context.fillText("腰臀", 238, 130);
+    context.fillText("腰臀", rem(238), rem(130));
 
     //大腿
     context.beginPath();
-    context.moveTo(170, 190);
-    context.lineTo(205, 165);
-    context.lineTo(240, 165);
+    context.moveTo(rem(170), rem(190));
+    context.lineTo(rem(205), rem(165));
+    context.lineTo(rem(240), rem(165));
     context.stroke();
-    context.fillText("大腿", 243, 165);
+    context.fillText("大腿", rem(243), rem(165));
 
     //腕部
     context.beginPath();
-    context.moveTo(50, 146);
-    context.lineTo(35, 100);
+    context.moveTo(rem(50), rem(146));
+    context.lineTo(rem(35), rem(100));
     context.stroke();
-    context.fillText("腕部", 25, 100);
+    context.fillText("腕部", rem(25), rem(100));
 
     //膝部
     context.beginPath();
-    context.moveTo(73, 220);
-    context.lineTo(93, 250);
+    context.moveTo(rem(73), rem(220));
+    context.lineTo(rem(93), rem(250));
     context.stroke();
-    context.fillText("膝部", 96, 250);
+    context.fillText("膝部", rem(96), rem(250));
 
     //踝及足底
     context.beginPath();
-    context.moveTo(73, 300);
-    context.lineTo(123, 300);
+    context.moveTo(rem(73), rem(300));
+    context.lineTo(rem(123), rem(300));
     context.stroke();
-    context.fillText("踝及足底", 126, 300);
+    context.fillText("踝及足底", rem(126), rem(300));
 
     context.draw();
   }},
+
+  painPointBlur(e) {
+    this.data.pain = e.detail.value;
+    this.resetSelectDict();
+    console.log(this.data.pain);
+  },
   /**
    * 生命周期函数--监听页面加载
    */

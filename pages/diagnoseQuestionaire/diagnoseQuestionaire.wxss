@@ -1,4 +1,11 @@
 /* pages/diagnoseQuestionaire/diagnoseQuestionaire.wxss */
+page{
+  height: 100%; 
+  overflow-y: hidden;
+}
+.diagnose-questionaire{
+   height: 100%; 
+}
 .questionaire{
   margin-top: 126rpx;
   width: 674rpx;
@@ -134,26 +141,17 @@
   font-size: 28rpx;
 }
 .pain-graph{
+  position: relative;
   width: 590rpx;
   height: 752rpx;
+  opacity: 0.97;
+  border-radius: 16rpx;
+  box-shadow: 0px 0px 1px 0px rgba(170, 170, 170, 1);
+  margin-bottom: 18rpx;
 }
-.pain-graph .slopingside{  
-  height:0px;  
-  border: 1px solid red;  
-  width: 45px;  
-  transform:rotate(125deg);
-  -o-transform:rotate(125deg);  
-  -moz-transform:rotate(125deg);  
-  -webkit-transform:rotate(125deg);  
-}  
-.pain-graph .linear {  
-  height:0px;   
-  border: 1px solid red;  
-  margin-left: 30px;  
-  margin-top: -10px;  
-}  
 .pain-graph .background-graph{
   position: absolute;
+  border-radius: 16rpx;
   width: 590rpx;
   height: 752rpx;
   z-index: -1;
@@ -163,45 +161,46 @@
   width: 590rpx;
   height: 752rpx;
 }
+/* body-part */
 .body-part-1 {
-  left: 236rpx;
-  top: 980rpx;
+  left: 160rpx;
+  top: 120rpx;
   width: 94rpx;
   height: 94rpx;
 }
 .body-part-2{
-  left: 354rpx;
-  top: 1034rpx;
+  left: 278rpx;
+  top: 174rpx;
   width: 56rpx;
   height: 56rpx;
 }
 .body-part-3{
-  left: 296rpx;
-  top: 1100rpx;
+  left: 226rpx;
+  top: 240rpx;
   width: 100rpx;
   height: 100rpx;
 }
 .body-part-4{
-  left: 370rpx;
-  top: 1226rpx;
+  left: 294rpx;
+  top: 366rpx;
   width: 80rpx;
   height: 80rpx;
 }
 .body-part-5{
-  left: 146rpx;
-  top: 1142rpx;
+  left: 70rpx;
+  top: 282rpx;
   width: 60rpx;
   height: 60rpx;
 }
 .body-part-6{
-  left: 166rpx;
-  top: 1264rpx;
+  left: 90rpx;
+  top: 404rpx;
   width: 80rpx;
   height: 80rpx;
 }
 .body-part-7{
-  left: 176rpx;
-  top: 1420rpx;
+  left: 100rpx;
+  top: 560rpx;
   width: 70rpx;
   height: 70rpx;
 }
@@ -217,6 +216,38 @@
   position:absolute;
   border-radius: 200rpx;
 }
+/* end */
+
+/* singleline-input */
+.single-input{
+  width: 590rpx;
+  height: 92rpx;
+  border-radius: 16rpx;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: rgba(16, 16, 16, 1);
+  text-align: left;
+  box-shadow: 0 0 2rpx 0 rgba(170, 170, 170, 1);
+  display: flex;
+}
+.single-input .input-name{
+  width: 130rpx;
+  margin-top: 14rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+}
+.single-input .input-content{
+  width: 404rpx;
+  margin-top: 13rpx;
+  height: 64rpx;
+  color: rgba(136, 136, 136, 1);
+  text-align: left;
+  border: 1rpx solid rgba(222, 222, 222, 1);
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+}
+/* end */
 .modal{
   position: fixed;
   width: 100%;

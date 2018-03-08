@@ -1,5 +1,5 @@
-<view class="diagnose-questionaire" bind:chooseevent="chooseEventListener" bind:closemodal="closeModalListener"
-style="height:{{clientHeight}};overflow:{{overflow}}">
+<scroll-view class="diagnose-questionaire" bind:chooseevent="chooseEventListener" bind:closemodal="closeModalListener"
+scroll-y="{{isScroll}}">
   <view class="questionaire">
     <view class="title">
       <view class="main-title">{{title}}</view>
@@ -48,20 +48,28 @@ style="height:{{clientHeight}};overflow:{{overflow}}">
         <view class="pain-graph">
           <image class="background-graph" src="{{avatarImg}}"></image>
           <canvas class="avatar-canvas" canvas-id="avatarCanvas"></canvas>
-          <view class="body-part-1 circle {{select1 ? 'body-part-selected' : 'body-part-unselect'}}" data-class="partColor1"
+          <view class="body-part-1 circle {{selectDict.select1 ? 'body-part-selected' : 'body-part-unselect'}}" data-class="partColor1"
           bindtap="painPoint" data-value="肩颈" data-select="select1"></view> 
-          <view class="body-part-2 circle {{select2 ? 'body-part-selected' : 'body-part-unselect'}}" data-class="partColor2"
+          <view class="body-part-2 circle {{selectDict.select2 ? 'body-part-selected' : 'body-part-unselect'}}" data-class="partColor2"
           bindtap="painPoint" data-value="肘部" data-select="select2"></view>
-          <view class="body-part-3 circle {{select3 ? 'body-part-selected' : 'body-part-unselect'}}" data-class="partColor3"
+          <view class="body-part-3 circle {{selectDict.select3 ? 'body-part-selected' : 'body-part-unselect'}}" data-class="partColor3"
           bindtap="painPoint" data-value="腰臀" data-select="select3"></view>
-          <view class="body-part-4 circle {{select4 ? 'body-part-selected' : 'body-part-unselect'}}" data-class="partColor4"
+          <view class="body-part-4 circle {{selectDict.select4 ? 'body-part-selected' : 'body-part-unselect'}}" data-class="partColor4"
           bindtap="painPoint" data-value="大腿" data-select="select4"></view>
-          <view class="body-part-5 circle {{select5 ? 'body-part-selected' : 'body-part-unselect'}}" data-class="partColor5"
+          <view class="body-part-5 circle {{selectDict.select5 ? 'body-part-selected' : 'body-part-unselect'}}" data-class="partColor5"
           bindtap="painPoint" data-value="腕部" data-select="select5"></view>
-          <view class="body-part-6 circle {{select6 ? 'body-part-selected' : 'body-part-unselect'}}" data-class="partColor6"
+          <view class="body-part-6 circle {{selectDict.select6 ? 'body-part-selected' : 'body-part-unselect'}}" data-class="partColor6"
           bindtap="painPoint" data-value="膝部" data-select="select6"></view>
-          <view class="body-part-7 circle {{select7 ? 'body-part-selected' : 'body-part-unselect'}}" data-class="partColor7"
+          <view class="body-part-7 circle {{selectDict.select7 ? 'body-part-selected' : 'body-part-unselect'}}" data-class="partColor7"
           bindtap="painPoint" data-value="踝及足底" data-select="select7"></view> 
+        </view>
+        <view class="single-input">
+          <view class="input-name">{{other1}}</view>
+          <input placeholder="{{inputTip}}"
+            class="input-content"
+            name="pain"
+            bindblur="painPointBlur">
+          </input>
         </view>
       </view>
       <button class="order-submit" form-type='submit'>{{submitBtn}}</button>
@@ -70,4 +78,4 @@ style="height:{{clientHeight}};overflow:{{overflow}}">
   <picker-view openPicker="{{openPicker}}" choices="{{choices}}"/>
   <view class="modal" hidden="{{modalHidden}}">
   </view>
-</view>
+</scroll-view>

@@ -14,10 +14,10 @@
       </input>
     </view>
     <view class="section">
-      <view class="section-name"><span class="necessary">*</span>{{eventNo}}:</view>
-      <input placeholder="{{eventNoTip}}"
+      <view class="section-name"><span class="necessary">*</span>{{eventNum}}:</view>
+      <input placeholder="{{eventNumTip}}"
             class="section-text"
-            name="eventNo">
+            name="eventNum">
       </input>
     </view>
     <view class="section">
