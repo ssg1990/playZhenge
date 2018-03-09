@@ -19,6 +19,9 @@ Page({
     bycycle: '自行车',
     painTitle: '·请在下图中点击您运动后最易产生不适的部位:',
     other1: '其他：',
+    other2: 'd.其他：',
+    inputTip: '请输入',
+    painLevelTitle: '· 请选择该部位疼痛程度：',
     // src
     maleSrc: '/assets/img/svg/male-selected.svg',
     femaleSrc: '/assets/img/svg/female-unselect.svg',
@@ -26,7 +29,6 @@ Page({
     // data
     maleSelect: 'select',
     femaleSelect: '',    
-    age: '',
     choices: [
       '<10岁',
       '10~20岁',
@@ -36,8 +38,13 @@ Page({
     tabSelect2: '',
     tabSelect3: '',
     /* data package */
-    sex: '男性',
-    goodSports: '跑步',
+    dataPackage: {
+      goodSports: '跑步',
+      painLevel: '',
+      age: '',
+      pain: '',
+      sex: '男性'
+    },
     /* part color List */
     selectDict: {
       select1: false,
@@ -48,12 +55,13 @@ Page({
       select6: false,
       select7: false,
     },
-    /* pain array */
-    pain: '',
     /* canvas attribute */
     canvasWidth:  '0px',
     canvasHeight: '0px',
-    isScroll: true
+    isScroll: true,
+    /* pain level */
+    painLevelList: ['a. 轻度不适', 'b. 酸痛 / 局部感觉障碍', 'c. 剧痛 / 活动受限'],
+    painSelect: [false, false, false]
   },
 
   doOpenPicker() {
@@ -72,26 +80,29 @@ Page({
 
   setSex(e) {
     const flag = e.target.dataset.value
+    const str = "dataPackage.sex"
     const femaleObj = {
       maleSelect: '',
       femaleSelect: 'select',
       femaleSrc: '/assets/img/svg/female-selected.svg',
       maleSrc: '/assets/img/svg/male-unselect.svg',
-      sex: '女性',
+      [str]: '女性',
     };
     const maleObj = {
       maleSelect: 'select',
       femaleSelect: '',
       maleSrc: '/assets/img/svg/male-selected.svg',
       femaleSrc: '/assets/img/svg/female-unselect.svg',
-      sex: '男性',
+      [str]: '男性',
     };
     flag === '0' ? this.setData(maleObj) : this.setData(femaleObj);
   },
 
   tapTab(e) {
     const index = e.target.dataset.index;
+    const value = e.target.dataset.value;
     const sportsList = ['跑步', '游泳', '自行车'];
+    const str = 'dataPackage.goodSports';
     let tabSelectObj = {
       tabSelect1: '',
       tabSelect2: '',
@@ -99,11 +110,13 @@ Page({
     }
     tabSelectObj["tabSelect" + index] = 'tab-selected';
     this.setData(tabSelectObj);
+    this.setData({ [str]: value });
   },
 
   chooseEventListener: function (e) {
+    const str = "dataPackage.age"
     this.setData({
-      age: e.detail.choice,
+      [str]: e.detail.choice,
       modalHidden: true,
       isScroll: true,
     })
@@ -132,27 +145,55 @@ Page({
       selectDict: initSelectDict,
     })
   },
+
+  resetPainSelect() {
+    this.setData({
+      painSelect: [false, false, false]
+    })
+  },
   
   painPoint: function(e) {
     const value = e.target.dataset.value;
     const select = e.target.dataset.select;
-    let str = "selectDict." + select;
+    let str1 = "selectDict." + select;
+    let str2 = "dataPackage.pain"
     this.resetSelectDict();
     this.setData({
-      [str]: true,
-      pain: value,
+      [str1]: true,
+      [str2]: value,
     });
-    console.log(this.data.pain);
+  },
+
+  selectPainLevel: function(e) {
+    const idx = e.target.dataset.index;
+    const str1 = 'painSelect[' + idx + ']'; 
+    const str2 = 'dataPackage.painLevel';
+    this.resetPainSelect();
+
+    this.setData({
+      [str1]: true,
+      [str2]: this.data.painLevelList[idx | 0]
+    });
   },
 
   formSubmit(e) {
     console.log(e.detail.value);
+    console.log(this.data.dataPackage);
+    this.goSuccess();
   },
+
   rem(src) {
     const commonWidth = 375;
     const ratio = wx.getSystemInfoSync().windowWidth / 375;
     return src*ratio|0;
   },
+
+  goSuccess() {
+    wx.navigateTo({
+      url: '/pages/orderSuccess/orderSuccess',
+    })
+  },
+
   canvasDraw() {{
     var context = wx.createCanvasContext('avatarCanvas');
     context.setStrokeStyle('#888888');
@@ -215,9 +256,19 @@ Page({
   }},
 
   painPointBlur(e) {
-    this.data.pain = e.detail.value;
-    this.resetSelectDict();
-    console.log(this.data.pain);
+    const str = 'dataPackage.pain';
+    if (e.detail.value !== ''){
+      this.resetSelectDict();
+      this.setData({ [str]: e.detail.value });
+    }
+  },
+
+  painLevelBlur(e) {
+    const str = 'dataPackage.painLevel';
+    if (e.detail.value !== ''){
+      this.resetPainSelect();
+      this.setData({ [str]: e.detail.value });
+    }
   },
   /**
    * 生命周期函数--监听页面加载

@@ -15,6 +15,7 @@ page{
   border: 2rpx solid rgba(173,173,173,0.7);
   box-shadow: 0 0 8rpx 0 rgba(173,173,173,1);
   border-radius: 10rpx;
+  margin-bottom: 50rpx;
 }
 .title{
   text-align: center;
@@ -229,23 +230,46 @@ page{
   text-align: left;
   box-shadow: 0 0 2rpx 0 rgba(170, 170, 170, 1);
   display: flex;
+  margin-bottom: 30rpx;
 }
 .single-input .input-name{
-  width: 130rpx;
+  width: 150rpx;
   margin-top: 14rpx;
   height: 64rpx;
   line-height: 64rpx;
-  text-align: center;
+  text-indent: 30rpx;
 }
 .single-input .input-content{
-  width: 404rpx;
+  width: 344rpx;
   margin-top: 13rpx;
   height: 64rpx;
-  color: rgba(136, 136, 136, 1);
-  text-align: left;
+  padding-right: 30rpx;
+  padding-left: 30rpx;
   border: 1rpx solid rgba(222, 222, 222, 1);
-  padding-left: 15rpx;
-  padding-right: 15rpx;
+}
+.pain-level{
+  color: rgba(16, 16, 16, 1);
+  font-size: 28rpx;
+  margin-bottom: 30rpx;
+}
+.pain-level-btn{
+  width: 590rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 5px;
+  text-align: left;
+  text-indent: 30rpx;
+  margin-bottom: 18rpx;
+  font-size: 28rpx;
+  border: 2rpx solid rgba(187, 187, 187, 1);
+  color: #101010;
+}
+.pain-selected{
+  background-color:#5B96A8;
+  color: #FFFFFF;
+}
+.border-dark{
+  border: 2rpx solid rgba(187, 187, 187, 1);
 }
 /* end */
 .modal{

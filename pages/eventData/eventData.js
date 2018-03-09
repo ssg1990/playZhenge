@@ -1,3 +1,4 @@
+const util = require('../../utils/util.js');
 // pages/eventData/eventData.js
 Page({
 
@@ -50,7 +51,7 @@ Page({
   },
 
 
-  formSubmit(e) {
+  formSubmit: util.clickDebounce((e) => {
     const detail = e.detail.value;
     const completed = detail.eventName && detail.eventNo && detail.name;
     if(!completed) {
@@ -61,7 +62,7 @@ Page({
       this.goToQuestionaire();
       console.log('jump');
     }
-  },
+  }),
 
   showTips() {
     this.setData({

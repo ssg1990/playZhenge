@@ -1,0 +1,22 @@
+<view class="success-page">
+  <view class="success-title">{{labels.title}}</view>
+  <view class="success-subTitle">{{labels.subTitle1 + userCount + labels.subTitle2}}</view>
+  <view class="order">
+    <view class="order-content">
+      <view class="paragraph">{{labels.content1_1 + months + labels.month
+       + days + labels.day + event+ labels.content1_2}}</view>
+      <view class="paragraph">{{labels.content2_1 + curePart + labels.content2_2 + cureSet + labels.content2_3}}</view>
+      <view class="paragraph">{{labels.content3_1 + time + labels.content3_2}}</view>
+    </view>
+  </view>
+  <view class="images">
+    <view class="icon left"><image src="{{src.ogzIcon}}"></image></view>
+    <view class="icon"><image  src="{{src.qrCode}}" class="qrcode"></image></view>
+  </view>
+  <view class="orgnization">
+    {{labels.bottomTip1}}
+  </view>
+  <view class="orgnization">
+    {{labels.bottomTip2}}
+  </view>
+</view>

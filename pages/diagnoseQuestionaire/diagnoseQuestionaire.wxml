@@ -71,6 +71,18 @@ scroll-y="{{isScroll}}">
             bindblur="painPointBlur">
           </input>
         </view>
+        <view class="pain-level">
+          {{painLevelTitle}}
+        </view>
+        <view wx:for="{{painLevelList}}" data-index="{{index}}" wx:key="{{item}}" bindtap="selectPainLevel" class="pain-level-btn {{painSelect[index] ? 'pain-selected' : ''}}">{{item}}</view>
+        <view class="single-input border-dark">
+          <view class="input-name">{{other2}}</view>
+          <input placeholder="{{inputTip}}"
+            class="input-content"
+            name="pain"
+            bindblur="painLevelBlur">
+          </input>
+        </view>
       </view>
       <button class="order-submit" form-type='submit'>{{submitBtn}}</button>
     </form>

@@ -14,6 +14,23 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
-module.exports = {
-  formatTime: formatTime
+const clickDebounce = (fn, gapTime) => {
+  let gTime = parseInt(gapTime);
+  if (isNaN(gTime)) {
+    gTime = 1500
+  }
+  let _lastTime = 0
+  return () => {
+    let _nowTime = +new Date();
+    if (_nowTime - _lastTime > gTime) {
+      fn();
+      _lastTime = _nowTime;
+    }
+  }
 }
+
+module.exports = {
+  formatTime: formatTime,
+  clickDebounce: clickDebounce
+}
+

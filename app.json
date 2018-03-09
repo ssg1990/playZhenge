@@ -1,8 +1,9 @@
 {
   "pages": [
-    "pages/diagnoseQuestionaire/diagnoseQuestionaire",
-    "pages/eventData/eventData",    
     "pages/index/index",
+    "pages/orderSuccess/orderSuccess",
+    "pages/diagnoseQuestionaire/diagnoseQuestionaire",
+    "pages/eventData/eventData",
     "pages/orderList/orderList",
     "pages/logs/logs"
   ],
