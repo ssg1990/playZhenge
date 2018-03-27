@@ -12,7 +12,7 @@ Page({
     chooseEvent: '请选择赛事',
     eventName: '赛事名称',
     eventNameValue: '',
-    eventNum:"赛事号码",
+    eventNo:"赛事号码",
     eventNumTip:"请输入赛事号码",
     name: '您的名字',
     nameTip: "请输入您的名字",
@@ -51,7 +51,7 @@ Page({
   },
 
 
-  formSubmit: util.clickDebounce((e) => {
+  formSubmit: function(e){
     const detail = e.detail.value;
     const completed = detail.eventName && detail.eventNo && detail.name;
     if(!completed) {
@@ -62,7 +62,7 @@ Page({
       this.goToQuestionaire();
       console.log('jump');
     }
-  }),
+  },
 
   showTips() {
     this.setData({
