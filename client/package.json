@@ -1,0 +1,16 @@
+{
+  "name": "playZhenge",
+  "version": "1.0.0",
+  "description": "健康管家康复小程序",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ssg1990/playZhenge.git"
+  },
+  "keywords": [],
+  "author": "Dawn",
+  "license": "MIT",
+  "dependencies": {
+    "wafer2-client-sdk": "^1.0.0"
+  }
+}
